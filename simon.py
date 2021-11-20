@@ -24,7 +24,7 @@ simon = {
     "blue": {
         "button": gpiozero.Button(12),
         "led": gpiozero.LED(6),
-        "tone": gpiozero.tones.Tone("E3")
+        "tone": gpiozero.tones.Tone("A5")
         },
     "red": {
         "button": gpiozero.Button(16),
@@ -34,7 +34,7 @@ simon = {
     "green": {
         "button": gpiozero.Button(20),
         "led": gpiozero.LED(19),
-        "tone": gpiozero.tones.Tone("C#3")
+        "tone": gpiozero.tones.Tone("E4")
         },
     "yellow": {
         "button": gpiozero.Button(21),
