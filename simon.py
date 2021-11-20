@@ -14,19 +14,19 @@ simon = {
     "blue": {
         "button": gpiozero.Button(12),
         "led": gpiozero.LED(6)
-        }
+        },
     "red": {
         "button": gpiozero.Button(16),
         "led": gpiozero.LED(13)
-        }
+        },
     "green": {
         "button": gpiozero.Button(20),
         "led": gpiozero.LED(19)
-        }
+        },
     "yellow": {
         "button": gpiozero.Button(21),
         "led": gpiozero.LED(26)
-        }
+        },
     }
 
 simon["blue"]["button"].when_pressed = simon["blue"]["led"].on()
