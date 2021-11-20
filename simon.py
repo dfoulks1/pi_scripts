@@ -94,7 +94,7 @@ def start_game():
         time.sleep(2)
         
 def init_game():
-    # Set Callbacks
+    # These callbacks need to be some sort of verify_player_selection to work I think otherwise it's pmuch useless...
     simon["blue"]["button"].when_pressed = simon["blue"]["led"].on()
     simon["blue"]["button"].when_released = simon["blue"]["led"].off()
     simon["red"]["button"].when_pressed = simon["red"]["led"].on()
