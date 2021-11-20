@@ -53,11 +53,11 @@ def add_color_to_pattern():
 def display_pattern():
     global displaying
     displaying = True
-    for i in range (current_level)
+    for i in range (current_level):
         buzzer.play(simon[pattern[i]]["tone"])
-        simon[pattern[i]["led"].on()
+        simon[pattern[i]]["led"].on()
         time.sleep(speed)
-        simon[pattern[i]["led"].off()
+        simon[pattern[i]]["led"].off()
         time.sleep(speed)
     displaying = False
 
