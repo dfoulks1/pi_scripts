@@ -39,7 +39,7 @@ simon = {
     "yellow": {
         "button": gpiozero.Button(21),
         "led": gpiozero.LED(26),
-        "tone": gpiozero.tones.Tone("Cs4")
+        "tone": gpiozero.tones.Tone("C#4")
         },
     }
 
