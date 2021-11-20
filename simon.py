@@ -10,6 +10,12 @@ LIGHTS = [33, 37, 35, 31]
 BUTTONS = [11, 15, 13, 7]
 NOTES = ["E3", "A4", "E4", "Cs4"]
 
+def led_on(led):
+    led.on()
+
+def led_off(led):
+    led.off()
+    
 simon = {
     "blue": {
         "button": gpiozero.Button(12),
@@ -29,6 +35,6 @@ simon = {
         },
     }
 
-simon["blue"]["button"].when_pressed = simon["blue"]["led"].on()
-simon["blue"]["button"].when_released = simon["blue"]["led"].off()
+simon["blue"]["button"].when_pressed = led_on(simon["blue"]["led"])
+simon["blue"]["button"].when_released = led_off(simon["blue"]["led"])
         
