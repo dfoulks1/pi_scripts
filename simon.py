@@ -45,6 +45,7 @@ simon = {
 
 def verify_player_selection(color):
     global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
+    print(color)
     if not displaying and not is_won_cur_lvl and not is_game_over:
         color["led"].on()
         buzzer.play(color["tone"])
