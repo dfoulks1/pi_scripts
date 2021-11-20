@@ -115,6 +115,8 @@ def main():
         print("Start new round!!\n")
         init_game()
         start_game_monitor()
+    except:
+        break
         
 if __name__ == "__main__":
     main()
