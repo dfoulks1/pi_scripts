@@ -2,7 +2,7 @@ import gpiozero
 import threading
 import time
 import random
-import os
+import sys
 from subprocess import call
 
 speed = 0.25
@@ -116,7 +116,7 @@ def main():
         init_game()
         start_game_monitor()
     except:
-        break
+        sys.exit(0)
         
 if __name__ == "__main__":
     main()
