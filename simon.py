@@ -53,7 +53,7 @@ def add_color_to_pattern():
 def display_pattern():
     global displaying
     displaying = True
-    for i in range (current_level):
+    for i in range(current_level):
         buzzer.play(simon[pattern[i]]["tone"])
         simon[pattern[i]]["led"].on()
         time.sleep(speed)
@@ -61,7 +61,7 @@ def display_pattern():
         time.sleep(speed)
     displaying = False
 
-def player_turn:
+def player_turn():
     while not is_won_cur_lvl and not is_game_over:
         time.sleep(0.1)
         
@@ -116,3 +116,5 @@ def main():
         init_game()
         start_game_monitor()
         
+if __name__ == "__main__":
+    main()
