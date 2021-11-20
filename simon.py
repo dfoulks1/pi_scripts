@@ -48,7 +48,7 @@ def verify_player_selection(button):
     for color in simon.keys():
         if button is simon[color]["button"]:
             color = simon[color]
-
+    print(color)
     if not displaying and not is_won_cur_lvl and not is_game_over:
         color["led"].on()
         buzzer.play(color["tone"])
