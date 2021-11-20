@@ -45,7 +45,7 @@ simon = {
 
 def verify_player_selection(color):
     global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
-    if not displaying and not is_won_cur_lvl, and not is_game_over:
+    if not displaying and not is_won_cur_lvl and not is_game_over:
         color["led"].on()
         buzzer.play(color["tone"])
         if color.key() == pattern[current_step_of_level]:
@@ -54,7 +54,7 @@ def verify_player_selection(color):
                 current_level += 1
                 is_won_current_level = True
         else:
-            is_game_over: True
+            is_game_over = True
 
 def add_color_to_pattern():
     global is_won_cur_lvl, current_step_of_level
@@ -108,13 +108,15 @@ def start_game():
         time.sleep(2)
         
 def init_game():
-    # These callbacks need to be some sort of verify_player_selection to work I think otherwise it's pmuch useless...
     simon["blue"]["button"].when_pressed = verify_player_selection
-    simon["blue"]["button"].when_released = verify player selection
+    simon["blue"]["button"].when_released = verify_player_selection
+    
     simon["red"]["button"].when_pressed = verify_player_selection
     simon["red"]["button"].when_released = verify_player_selection
+    
     simon["green"]["button"].when_pressed = verify_player_selection
     simon["green"]["button"].when_released = verify_player_selection
+    
     simon["yellow"]["button"].when_pressed = verify_player_selection
     simon["yellow"]["button"].when_released = verify_player_selection
 
