@@ -67,8 +67,8 @@ def display_pattern():
     global displaying
     displaying = True
     for i in range(current_level):
-        buzzer.play(simon[pattern[i]]["tone"])
         simon[pattern[i]]["led"].on()
+        buzzer.play(simon[pattern[i]]["tone"])
         time.sleep(speed)
         buzzer.stop()
         simon[pattern[i]]["led"].off()
@@ -109,16 +109,16 @@ def start_game():
         
 def init_game():
     simon["blue"]["button"].when_pressed = verify_player_selection
-    simon["blue"]["button"].when_released = verify_player_selection
+    #simon["blue"]["button"].when_released = verify_player_selection
     
     simon["red"]["button"].when_pressed = verify_player_selection
-    simon["red"]["button"].when_released = verify_player_selection
+    #simon["red"]["button"].when_released = verify_player_selection
     
     simon["green"]["button"].when_pressed = verify_player_selection
-    simon["green"]["button"].when_released = verify_player_selection
+    #simon["green"]["button"].when_released = verify_player_selection
     
     simon["yellow"]["button"].when_pressed = verify_player_selection
-    simon["yellow"]["button"].when_released = verify_player_selection
+    #simon["yellow"]["button"].when_released = verify_player_selection
 
 def start_game_monitor():
     t = threading.Thread(target=start_game)
