@@ -34,7 +34,8 @@ simon = {
         "led": gpiozero.LED(26)
         },
     }
-
 simon["blue"]["button"].when_pressed = blue_on
 simon["blue"]["button"].when_released = blue_off
-        
+
+while True:
+    print("None")        
