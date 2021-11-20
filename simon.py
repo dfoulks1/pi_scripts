@@ -43,6 +43,19 @@ simon = {
         },
     }
 
+def verify_player_selection(color):
+    global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
+    if not displaying and not is_won_cur_lvl, and not is_game_over:
+        color["led"].on()
+        buzzer.play(color["tone"])
+        if color.key() == pattern[current_step_of_level]:
+            current_step_of_level += 1
+            if current_step_of_level >= current_level:
+                current_level += 1
+                is_won_current_level = True
+        else:
+            is_game_over: True
+
 def add_color_to_pattern():
     global is_won_cur_lvl, current_step_of_level
     is_won_cur_lvl = False
@@ -57,6 +70,7 @@ def display_pattern():
         buzzer.play(simon[pattern[i]]["tone"])
         simon[pattern[i]]["led"].on()
         time.sleep(speed)
+        buzzer.stop()
         simon[pattern[i]]["led"].off()
         time.sleep(speed)
     displaying = False
@@ -95,14 +109,14 @@ def start_game():
         
 def init_game():
     # These callbacks need to be some sort of verify_player_selection to work I think otherwise it's pmuch useless...
-    simon["blue"]["button"].when_pressed = simon["blue"]["led"].on
-    simon["blue"]["button"].when_released = simon["blue"]["led"].off
-    simon["red"]["button"].when_pressed = simon["red"]["led"].on
-    simon["red"]["button"].when_released = simon["red"]["led"].off
-    simon["green"]["button"].when_pressed = simon["green"]["led"].on
-    simon["green"]["button"].when_released = simon["green"]["led"].off
-    simon["yellow"]["button"].when_pressed = simon["yellow"]["led"].on
-    simon["yellow"]["button"].when_released = simon["yellow"]["led"].off
+    simon["blue"]["button"].when_pressed = verify_player_selection
+    simon["blue"]["button"].when_released = verify player selection
+    simon["red"]["button"].when_pressed = verify_player_selection
+    simon["red"]["button"].when_released = verify_player_selection
+    simon["green"]["button"].when_pressed = verify_player_selection
+    simon["green"]["button"].when_released = verify_player_selection
+    simon["yellow"]["button"].when_pressed = verify_player_selection
+    simon["yellow"]["button"].when_released = verify_player_selection
 
 def start_game_monitor():
     t = threading.Thread(target=start_game)
