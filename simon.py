@@ -45,10 +45,10 @@ simon = {
 
 def verify_player_selection(button):
     global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
-    for color in simon.keys():
-        if button is simon[color]["button"]:
-            color = simon[color]
-        else
+    for c in simon.keys():
+        if button is simon[c]["button"]:
+            color = simon[c]
+        else:
             pass
     print(color)
     if not displaying and not is_won_cur_lvl and not is_game_over:
