@@ -95,14 +95,14 @@ def start_game():
         
 def init_game():
     # These callbacks need to be some sort of verify_player_selection to work I think otherwise it's pmuch useless...
-    simon["blue"]["button"].when_pressed = simon["blue"]["led"].on()
-    simon["blue"]["button"].when_released = simon["blue"]["led"].off()
-    simon["red"]["button"].when_pressed = simon["red"]["led"].on()
-    simon["red"]["button"].when_released = simon["red"]["led"].off()
-    simon["green"]["button"].when_pressed = simon["green"]["led"].on()
-    simon["green"]["button"].when_released = simon["green"]["led"].off()
-    simon["yellow"]["button"].when_pressed = simon["yellow"]["led"].on()
-    simon["yellow"]["button"].when_released = simon["yellow"]["led"].off()
+    simon["blue"]["button"].when_pressed = simon["blue"]["led"].on
+    simon["blue"]["button"].when_released = simon["blue"]["led"].off
+    simon["red"]["button"].when_pressed = simon["red"]["led"].on
+    simon["red"]["button"].when_released = simon["red"]["led"].off
+    simon["green"]["button"].when_pressed = simon["green"]["led"].on
+    simon["green"]["button"].when_released = simon["green"]["led"].off
+    simon["yellow"]["button"].when_pressed = simon["yellow"]["led"].on
+    simon["yellow"]["button"].when_released = simon["yellow"]["led"].off
 
 def start_game_monitor():
     t = threading.Thread(target=start_game)
