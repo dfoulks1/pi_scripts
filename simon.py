@@ -34,7 +34,7 @@ simon = {
     "green": {
         "button": gpiozero.Button(20),
         "led": gpiozero.LED(19),
-        "tone": gpiozero.tones.Tone("E4")
+        "tone": gpiozero.tones.Tone("C#3")
         },
     "yellow": {
         "button": gpiozero.Button(21),
@@ -67,11 +67,12 @@ def display_pattern():
     global displaying
     displaying = True
     for i in range(current_level):
-        simon[pattern[i]]["led"].on()
+        led = simon[pattern[i]]["led"]
+        led.on()
         buzzer.play(simon[pattern[i]]["tone"])
         time.sleep(speed)
         buzzer.stop()
-        simon[pattern[i]]["led"].off()
+        led.off()
         time.sleep(speed)
     displaying = False
 
