@@ -56,7 +56,7 @@ def pressed(channel):
     
 def verify_player_selection(channel):
     print("\nPlayer Selection:")
-    global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
+    global displaying, current_step_of_level, current_level, is_won_cur_lvl, is_game_over
     for c in simon.keys():
         if channel is simon[c]["button"]:
             color = simon[c]
@@ -64,7 +64,6 @@ def verify_player_selection(channel):
             break
         else:
             continue
-    print(color)
     color["led"].off()
     buzzer.stop()
     print(c)
