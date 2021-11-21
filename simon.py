@@ -131,7 +131,7 @@ def start_game():
             else:
                 print("Thanks for playing\n")
                 break
-        time.sleep(1)
+        time.sleep(.25)
         
         
 def init_game():
