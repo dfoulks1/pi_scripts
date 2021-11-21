@@ -63,7 +63,7 @@ def verify_player_selection(channel):
             c = c
             break
         else:
-            pass
+            continue
     print(color)
     color["led"].off()
     buzzer.stop()
@@ -131,6 +131,8 @@ def start_game():
             else:
                 print("Thanks for playing\n")
                 break
+        else:
+            continue
         time.sleep(.25)
         
         
