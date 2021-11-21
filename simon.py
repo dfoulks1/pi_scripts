@@ -109,8 +109,8 @@ def start_game():
         player_turn()
         if is_game_over:
             print("Game Over! Your Score was {}\n".format(current_level+1))
-            play_again = input("Press 'Y' to play again")
-            if play_again.lower == "y":
+            play_again = input("Press 'Y/y' to play again ")
+            if play_again.upper() == "Y":
                 reset()
                 print("Start new round!!\n")
             else:
