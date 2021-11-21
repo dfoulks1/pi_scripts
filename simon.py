@@ -75,6 +75,8 @@ def verify_player_selection(channel):
                 is_won_current_level = True
         else:
             is_game_over = True
+    print("back to the game")
+        
         
 def add_color_to_pattern():
     global is_won_cur_lvl, current_step_of_level
@@ -86,7 +88,7 @@ def add_color_to_pattern():
 def display_pattern():
     global displaying
     displaying = True
-    print("Displaying:\n")
+    print("\nDisplaying:")
     for i in range(current_level):
         print(pattern[i])
         led = simon[pattern[i]]["led"]
