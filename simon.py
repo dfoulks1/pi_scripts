@@ -45,14 +45,14 @@ simon = {
 
 def pressed(channel):
     for c in simon.keys():
-    if channel is simon[c]["button"]:
-        color = simon[c]
-        c = c
-    else:
-        pass
-    color["led"].on()
-    buzzer.play(color["tone"])
-    sleep
+        if channel is simon[c]["button"]:
+            color = simon[c]
+            c = c
+        else:
+            pass
+        color["led"].on()
+        buzzer.play(color["tone"])
+
     
 def verify_player_selection(channel):
     print("Player Selection:\n")
