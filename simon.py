@@ -79,7 +79,7 @@ def verify_player_selection(channel):
         
         
 def add_color_to_pattern():
-    global is_won_cur_lvl, current_step_of_level
+    global pattern, is_won_cur_lvl, current_step_of_level
     is_won_cur_lvl = False
     current_step_of_level - 0
     c = random.randint(0, 3)
