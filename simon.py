@@ -61,14 +61,16 @@ def verify_player_selection(channel):
         if channel is simon[c]["button"]:
             color = simon[c]
             c = c
+            break
         else:
             pass
+    print(color)
     color["led"].off()
     buzzer.stop()
     print(c)
     if not displaying and not is_won_cur_lvl and not is_game_over:
         if c == pattern[current_step_of_level]:
-            current_step_of_level += 1
+            current_step_of_level = 1
             if current_step_of_level >= current_level:
                 current_level += 1
                 is_won_current_level = True
@@ -121,7 +123,7 @@ def start_game():
         display_pattern()
         player_turn()
         if is_game_over:
-            print("Game Over! Your Score was {}\n".format(current_level+1))
+            print("Game Over! Your Score was {}\n".format(current_level-1))
             play_again = input("Press 'Y/y' to play again ")
             if play_again.upper() == "Y":
                 reset()
