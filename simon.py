@@ -24,7 +24,7 @@ simon = {
     "blue": {
         "button": gpiozero.Button(12),
         "led": gpiozero.LED(6),
-        "tone": gpiozero.tones.Tone("A5")
+        "tone": gpiozero.tones.Tone("C#5")
         },
     "red": {
         "button": gpiozero.Button(16),
@@ -43,6 +43,17 @@ simon = {
         },
     }
 
+def pressed(channel):
+    for c in simon.keys():
+    if channel is simon[c]["button"]:
+        color = simon[c]
+        c = c
+    else:
+        pass
+    color["led"].on()
+    buzzer.play(color["tone"])
+    sleep
+    
 def verify_player_selection(channel):
     print("Player Selection:\n")
     global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
@@ -52,8 +63,8 @@ def verify_player_selection(channel):
             c = c
         else:
             pass
-    color["led"].on()
-    buzzer.play(color["tone"])
+    color["led"].off()
+    buzzer.stop()
     print(c)
     if not displaying and not is_won_cur_lvl and not is_game_over:
         if c == pattern[current_step_of_level]:
