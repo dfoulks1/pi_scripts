@@ -129,7 +129,7 @@ def start_game():
             else:
                 print("Thanks for playing\n")
                 break
-        time.sleep(2)
+        
         
 def init_game():
     simon["blue"]["button"].when_pressed = verify_player_selection
@@ -143,6 +143,7 @@ def init_game():
     
     simon["yellow"]["button"].when_pressed = verify_player_selection
     #simon["yellow"]["button"].when_released = verify_player_selection
+    time.sleep(1)
 
 def start_game_monitor():
     t = threading.Thread(target=start_game)
