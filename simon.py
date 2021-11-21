@@ -133,8 +133,7 @@ def start_game():
             else:
                 print("Thanks for playing\n")
                 break
-        else:
-            start_game()
+        print("Next round!")
         time.sleep(.25)
         
         
