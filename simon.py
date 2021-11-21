@@ -69,13 +69,12 @@ def verify_player_selection(channel):
     print(c)
     if not displaying and not is_won_cur_lvl and not is_game_over:
         if c == pattern[current_step_of_level]:
-            current_step_of_level = 1
+            current_step_of_level += 1
             if current_step_of_level >= current_level:
                 current_level += 1
                 is_won_current_level = True
         else:
             is_game_over = True
-    print("back to the game")
         
         
 def add_color_to_pattern():
@@ -118,6 +117,7 @@ def reset():
         
 def start_game():
     while True:
+        print("game time!")
         add_color_to_pattern()
         display_pattern()
         player_turn()
