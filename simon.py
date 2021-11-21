@@ -47,7 +47,6 @@ def pressed(channel):
     for c in simon.keys():
         if channel is simon[c]["button"]:
             color = simon[c]
-            c = c
         else:
             pass
         color["led"].on()
@@ -132,17 +131,18 @@ def start_game():
         
         
 def init_game():
-    simon["blue"]["button"].when_pressed = verify_player_selection
-    #simon["blue"]["button"].when_released = verify_player_selection
+    simon["blue"]["button"].when_pressed = pressed
+    simon["blue"]["button"].when_released = verify_player_selection
     
-    simon["red"]["button"].when_pressed = verify_player_selection
-    #simon["red"]["button"].when_released = verify_player_selection
+    simon["red"]["button"].when_pressed = pressed
+    simon["red"]["button"].when_released = verify_player_selection
     
-    simon["green"]["button"].when_pressed = verify_player_selection
-    #simon["green"]["button"].when_released = verify_player_selection
+    simon["green"]["button"].when_pressed = pressed
+    simon["green"]["button"].when_released = verify_player_selection
     
-    simon["yellow"]["button"].when_pressed = verify_player_selection
-    #simon["yellow"]["button"].when_released = verify_player_selection
+    simon["yellow"]["button"].when_pressed = pressed
+    simon["yellow"]["button"].when_released = verify_player_selection
+    
     time.sleep(1)
 
 def start_game_monitor():
