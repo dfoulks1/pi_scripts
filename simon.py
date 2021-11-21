@@ -55,6 +55,7 @@ def verify_player_selection(button):
     if not displaying and not is_won_cur_lvl and not is_game_over:
         color["led"].on()
         buzzer.play(color["tone"])
+        print(c)
         if c == pattern[current_step_of_level]:
             current_step_of_level += 1
             if current_step_of_level >= current_level:
@@ -62,7 +63,9 @@ def verify_player_selection(button):
                 is_won_current_level = True
         else:
             is_game_over = True
-
+        buzzer.stop()
+        color["led"].off()
+        
 def add_color_to_pattern():
     global is_won_cur_lvl, current_step_of_level
     is_won_cur_lvl = False
