@@ -48,13 +48,14 @@ def verify_player_selection(button):
     for c in simon.keys():
         if button is simon[c]["button"]:
             color = simon[c]
+            c = c
         else:
             pass
-    print(color)
+            
     if not displaying and not is_won_cur_lvl and not is_game_over:
         color["led"].on()
         buzzer.play(color["tone"])
-        if color.key() == pattern[current_step_of_level]:
+        if c == pattern[current_step_of_level]:
             current_step_of_level += 1
             if current_step_of_level >= current_level:
                 current_level += 1
