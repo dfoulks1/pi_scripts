@@ -43,19 +43,19 @@ simon = {
         },
     }
 
-def verify_player_selection(button):
+def verify_player_selection(channel):
+    print("Player Selection:\n")
     global current_step_of_level, current_level, is_won_cur_lvl, is_game_over
     for c in simon.keys():
-        if button is simon[c]["button"]:
+        if channel is simon[c]["button"]:
             color = simon[c]
             c = c
         else:
             pass
-            
+    color["led"].on()
+    buzzer.play(color["tone"])
+    print(c)
     if not displaying and not is_won_cur_lvl and not is_game_over:
-        color["led"].on()
-        buzzer.play(color["tone"])
-        print(c)
         if c == pattern[current_step_of_level]:
             current_step_of_level += 1
             if current_step_of_level >= current_level:
@@ -76,7 +76,9 @@ def add_color_to_pattern():
 def display_pattern():
     global displaying
     displaying = True
+    print("Displaying:\n")
     for i in range(current_level):
+        print(pattern[i])
         led = simon[pattern[i]]["led"]
         led.on()
         buzzer.play(simon[pattern[i]]["tone"])
