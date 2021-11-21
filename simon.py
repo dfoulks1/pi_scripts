@@ -49,8 +49,9 @@ def pressed(channel):
             color = simon[c]
         else:
             pass
-        color["led"].on()
-        buzzer.play(color["tone"])
+    
+    color["led"].on()
+    buzzer.play(color["tone"])
 
     
 def verify_player_selection(channel):
