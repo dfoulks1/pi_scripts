@@ -16,6 +16,20 @@ X = gpiozero.tones.Tone("A5")
 V = gpiozero.tones.Tone("B5")
 I = gpiozero.tones.Tone("F#5")
 
+def winchester():
+    q1_tones = ["G#4", "E4", "F#4", "B3"]
+    q2_tones = ["B3", "F#4", "G#4", "E4"]
+    for tone in q1_tones:
+        b.play(gpiozero.tones.Tone(tone))
+        time.sleep(0.3)
+        b.stop()
+    time.sleep(0.5)
+    for tone in q2_tones:
+        b.play(gpiozero.tones.Tone(tone))
+        time.sleep(0.3)
+        b.stop()
+
+
 def chime(r):
     print(r)
     if r > 10:
@@ -40,11 +54,13 @@ def ring(note):
     time.sleep(0.01)
 
 while True:
-#    if button.is_active is True:
+    if button.is_active is True:
+        winchester()
+
     minute = int(time.strftime("%M", time.localtime()))
     second = int(time.strftime("%S", time.localtime()))
     hour = int(time.strftime(fmt, time.localtime()))
-    if minute == 19 and second == 00:
+    if minute == 00 and second == 00:
         chime(hour)
         time.sleep(1)
     else:
