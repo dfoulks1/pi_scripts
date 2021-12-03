@@ -1,0 +1,8 @@
+[Unit]
+Description=Hourly chime.
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/hourly-chime/hourly-chime.py
+
+[Install]
+WantedBy=multi-user.target
