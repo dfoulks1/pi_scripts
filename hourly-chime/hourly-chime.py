@@ -30,7 +30,7 @@ def winchester():
 
 
 def chime(r):
-    if r > 10:
+    if r >= 10:
         ring(X)
         r = r - 10
         chime(r)
