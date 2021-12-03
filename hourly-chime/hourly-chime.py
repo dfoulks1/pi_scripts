@@ -10,7 +10,6 @@ if FORMAT24:
 else:
     fmt = "%I"
 
-button = gpiozero.Button(12)
 b = gpiozero.TonalBuzzer(17)
 X = gpiozero.tones.Tone("A4")
 V = gpiozero.tones.Tone("B4")
@@ -53,8 +52,6 @@ def ring(note):
     time.sleep(0.01)
 
 while True:
-    if button.is_active is True:
-        winchester()
     minute = int(time.strftime("%M", time.localtime()))
     second = int(time.strftime("%S", time.localtime()))
     hour = int(time.strftime(fmt, time.localtime()))
