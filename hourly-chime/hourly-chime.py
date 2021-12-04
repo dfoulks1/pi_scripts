@@ -11,9 +11,9 @@ else:
     fmt = "%I"
 
 b = gpiozero.TonalBuzzer(17)
-X = gpiozero.tones.Tone("A4")
+I = gpiozero.tones.Tone("A4")
 V = gpiozero.tones.Tone("B4")
-I = gpiozero.tones.Tone("F#4")
+X = gpiozero.tones.Tone("F#4")
 HALF = gpiozero.tones.Tone("A5")
 
 
