@@ -14,23 +14,25 @@ b = gpiozero.TonalBuzzer(17)
 X = gpiozero.tones.Tone("A4")
 V = gpiozero.tones.Tone("B4")
 I = gpiozero.tones.Tone("F#4")
+HALF = gpiozero.tones.Tone("A5")
 
 def winchester():
-    q1_tones = ["G#4", "E4", "F#4", "B3"]
-    q2_tones = ["B3", "F#4", "G#4", "E4"]
-    for tone in q1_tones:
-        b.play(gpiozero.tones.Tone(tone))
-        time.sleep(0.3)
-        b.stop()
-    time.sleep(0.5)
-    for tone in q2_tones:
-        b.play(gpiozero.tones.Tone(tone))
-        time.sleep(0.3)
-        b.stop()
-
+    tones = [
+        ["G#4", "E4", "F#4", "B3"],
+        ["B3", "F#4", "G#4", "E4"]
+        ]
+    for q in tones:
+        for tone in q:
+            b.play(gpiozero.tones.Tone(tone))
+            time.sleep(0.3)
+            b.stop()
+        time.sleep(0.5)
 
 def chime(r):
-    if r >= 10:
+    if r == 9:
+        [ ring(note) for note in ["I", "I", "X"] ]
+
+    elif r > 9:
         ring(X)
         r = r - 10
         chime(r)
@@ -59,6 +61,6 @@ while True:
         chime(hour)
         time.sleep(1)
     elif minute == 30 and second == 00:
-        chime(1)
+        ring(HALF)
     else:
         time.sleep(1)
