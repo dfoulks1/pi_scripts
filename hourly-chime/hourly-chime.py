@@ -16,11 +16,9 @@ V = gpiozero.tones.Tone("B4")
 I = gpiozero.tones.Tone("F#4")
 HALF = gpiozero.tones.Tone("A5")
 
+
 def winchester():
-    tones = [
-        ["G#4", "E4", "F#4", "B3"],
-        ["B3", "F#4", "G#4", "E4"]
-        ]
+    tones = [["G#4", "E4", "F#4", "B3"], ["B3", "F#4", "G#4", "E4"]]
     for q in tones:
         for tone in q:
             b.play(gpiozero.tones.Tone(tone))
@@ -28,9 +26,10 @@ def winchester():
             b.stop()
         time.sleep(0.5)
 
+
 def chime(r):
     if r == 9:
-        [ ring(note) for note in ["I", "I", "X"] ]
+        [ring(note) for note in ["I", "I", "X"]]
 
     elif r > 9:
         ring(X)
@@ -47,11 +46,13 @@ def chime(r):
         r = r - 1
         chime(r)
 
+
 def ring(note):
     b.play(note)
     time.sleep(0.25)
     b.stop()
     time.sleep(0.01)
+
 
 while True:
     minute = int(time.strftime("%M", time.localtime()))
