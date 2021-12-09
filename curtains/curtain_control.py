@@ -28,6 +28,7 @@ def pressed(channel):
             print("Curtains are already closed..")
 
 def close():
+    global status_led
     print("Closing the curtains")
     status_led.color = colorzero.Color("red")
     gpiozero.LED(16).on()
@@ -38,6 +39,7 @@ def close():
     status_led.off()
 
 def open():
+    global status_led
     print("Opening the curtains")
     status_led.color = colorzero.Color("red")
     gpiozero.LED(16).on()
