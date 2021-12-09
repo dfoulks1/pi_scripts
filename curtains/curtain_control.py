@@ -47,24 +47,24 @@ def open():
     gpiozero.LEF(12).off()
     status_led.off()
 
-def wait_for_signal()
-while True:
-    time.sleep(0.1)
+def wait_for_signal():
+    while True:
+        time.sleep(0.1)
 
 def curtain():
-while True:
-   wait_for_signal()
+    while True:
+       wait_for_signal()
 
 def init():
-open_btn.when_pressed = pressed
-close_btn.when_pressed = pressed
-time.sleep(0.1)
+    open_btn.when_pressed = pressed
+    close_btn.when_pressed = pressed
+    time.sleep(0.1)
 
 def start():
-t = threading.Thread(target=curtain)
-t.daemon = True
-t.start()
-t.join()
+    t = threading.Thread(target=curtain)
+    t.daemon = True
+    t.start()
+    t.join()
 
 def main():
     print("starting curtain controller")
