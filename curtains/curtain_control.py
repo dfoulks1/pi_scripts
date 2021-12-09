@@ -34,7 +34,7 @@ def close():
     gpiozero.LED(12).on()
     time.sleep(1)
     gpiozero.LED(16).off()
-    gpiozero.LEF(12).off()
+    gpiozero.LED(12).off()
     status_led.off()
 
 def open():
@@ -44,7 +44,7 @@ def open():
     gpiozero.LED(12).on()
     time.sleep(1)
     gpiozero.LED(16).off()
-    gpiozero.LEF(12).off()
+    gpiozero.LED(12).off()
     status_led.off()
 
 def wait_for_signal():
