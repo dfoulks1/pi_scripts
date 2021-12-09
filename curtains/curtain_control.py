@@ -15,37 +15,34 @@ def pressed(channel):
     global is_open
     if channel is open_btn:
         if not is_open:
-            status_led.on()
             open()
         else:
             print("Curtains are already open..")
     elif channel is close_btn:
         if is_open:
-            status_led.on()
-            print("Closing the curtains")
-            time.sleep(1)
-            status_led.off()
-            is_open = False
+            close()
         else:
             print("Curtains are already closed..")
 
 def close():
-    global status_led
+    global status_led, is_open
     print("Closing the curtains")
     status_led.on()
     c_switch.on()
     time.sleep(1)
     c_switch.off()
     status_led.off()
+    is_open = False
 
 def open():
-    global status_led
+    global status_led, is_open
     print("Opening the curtains")
     status_led.on()
     f_switch.on()
     time.sleep(1)
     f_switch.off()
     status_led.off()
+    is_open = True
 
 def wait_for_signal():
     while True:
