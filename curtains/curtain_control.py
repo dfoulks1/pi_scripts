@@ -11,7 +11,7 @@ open_btn = gpiozero.Button(21)
 close_btn = gpiozero.Button(20)
 
 def pressed(channel):
-    global state
+    global is_open
     if channel is open_btn and not is_open:
         print("Opening the curtains")
         status_led.color = colorzero.Color("red")
