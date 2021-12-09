@@ -9,7 +9,8 @@ status_led = gpiozero.LED(13)
 is_open = False
 open_btn = gpiozero.Button(21)
 close_btn = gpiozero.Button(20)
-
+f_switch = gpiozero.LED(12)
+c_switch = gpiozero.LED(16)
 def pressed(channel):
     global is_open
     if channel is open_btn:
@@ -32,22 +33,18 @@ def close():
     global status_led
     print("Closing the curtains")
     status_led.on()
-    gpiozero.LED(16).on()
-    gpiozero.LED(12).on()
+    c_switch.on()
     time.sleep(1)
-    gpiozero.LED(16).off()
-    gpiozero.LED(12).off()
+    c_switch.off()
     status_led.off()
 
 def open():
     global status_led
     print("Opening the curtains")
     status_led.on()
-    gpiozero.LED(16).on()
-    gpiozero.LED(12).on()
+    f_switch.on()
     time.sleep(1)
-    gpiozero.LED(16).off()
-    gpiozero.LED(12).off()
+    f_switch.off()
     status_led.off()
 
 def wait_for_signal():
