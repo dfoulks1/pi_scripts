@@ -20,7 +20,7 @@ def pressed(channel):
         is_open = True
     elif channel is close_btn and is_open:
         print("Closing the curtains")
-        led.color = colorzero.Color("red")
+        status_led.color = colorzero.Color("red")
         time.sleep(1)
         status_led.off()
         is_open = False
