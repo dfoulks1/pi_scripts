@@ -14,11 +14,7 @@ def pressed(channel):
     global is_open
     if channel is open_btn:
         if not is_open:
-            print("Opening the curtains")
-            status_led.color = colorzero.Color("red")
-            time.sleep(1)
-            status_led.off()
-            is_open = True
+            open()
         else:
             print("Curtains are already open..")
     elif channel is close_btn:
@@ -30,25 +26,45 @@ def pressed(channel):
             is_open = False
         else:
             print("Curtains are already closed..")
-    
-def wait_for_signal():
-    while True:
-        time.sleep(0.1)
 
-def curtain():
-    while True:
-       wait_for_signal()
+def close():
+    print("Closing the curtains")
+    status_led.color = colorzero.Color("red")
+    gpiozero.LED(16).on()
+    gpiozero.LED(12).on()
+    sleep(1)
+    gpiozero.LED(16).off()
+    gpiozero.LEF(12).off()
+    status_led.off()
 
-def init():
-    open_btn.when_pressed = pressed
-    close_btn.when_pressed = pressed
+def open():
+    print("Opening the curtains")
+    status_led.color = colorzero.Color("red")
+    gpiozero.LED(16).on()
+    gpiozero.LED(12).on()
+    sleep(1)
+    gpiozero.LED(16).off()
+    gpiozero.LEF(12).off()
+    status_led.off()
+
+def wait_for_signal()
+while True:
     time.sleep(0.1)
 
+def curtain():
+while True:
+   wait_for_signal()
+
+def init():
+open_btn.when_pressed = pressed
+close_btn.when_pressed = pressed
+time.sleep(0.1)
+
 def start():
-    t = threading.Thread(target=curtain)
-    t.daemon = True
-    t.start()
-    t.join()
+t = threading.Thread(target=curtain)
+t.daemon = True
+t.start()
+t.join()
 
 def main():
     print("starting curtain controller")
