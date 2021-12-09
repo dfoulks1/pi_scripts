@@ -14,13 +14,14 @@ def pressed(channel):
     global is_open
     if channel is open_btn:
         if not is_open:
+            status_led.color = colorzero.Color("red")
             open()
         else:
             print("Curtains are already open..")
     elif channel is close_btn:
         if is_open:
-            print("Closing the curtains")
             status_led.color = colorzero.Color("red")
+            print("Closing the curtains")
             time.sleep(1)
             status_led.off()
             is_open = False
