@@ -5,7 +5,7 @@ import time
 import sys
 import threading
 
-status_led = gpiozero.RGBLED(13, 19, 26)
+status_led = gpiozero.LED(13)
 is_open = False
 open_btn = gpiozero.Button(21)
 close_btn = gpiozero.Button(20)
@@ -14,13 +14,13 @@ def pressed(channel):
     global is_open
     if channel is open_btn:
         if not is_open:
-            status_led.color = colorzero.Color("red")
+            status_led.on()
             open()
         else:
             print("Curtains are already open..")
     elif channel is close_btn:
         if is_open:
-            status_led.color = colorzero.Color("red")
+            status_led.on()
             print("Closing the curtains")
             time.sleep(1)
             status_led.off()
@@ -31,7 +31,7 @@ def pressed(channel):
 def close():
     global status_led
     print("Closing the curtains")
-    status_led.color = colorzero.Color("red")
+    status_led.on()
     gpiozero.LED(16).on()
     gpiozero.LED(12).on()
     time.sleep(1)
@@ -42,7 +42,7 @@ def close():
 def open():
     global status_led
     print("Opening the curtains")
-    status_led.color = colorzero.Color("red")
+    status_led.on()
     gpiozero.LED(16).on()
     gpiozero.LED(12).on()
     time.sleep(1)
