@@ -12,18 +12,24 @@ close_btn = gpiozero.Button(20)
 
 def pressed(channel):
     global is_open
-    if channel is open_btn and not is_open:
-        print("Opening the curtains")
-        status_led.color = colorzero.Color("red")
-        time.sleep(1)
-        status_led.off()
-        is_open = True
-    elif channel is close_btn and is_open:
-        print("Closing the curtains")
-        status_led.color = colorzero.Color("red")
-        time.sleep(1)
-        status_led.off()
-        is_open = False
+    if channel is open_btn:
+        if not is_open:
+            print("Opening the curtains")
+            status_led.color = colorzero.Color("red")
+            time.sleep(1)
+            status_led.off()
+            is_open = True
+        else:
+            print("Curtains are already open..")
+    elif channel is close_btn:
+        if is_open:
+            print("Closing the curtains")
+            status_led.color = colorzero.Color("red")
+            time.sleep(1)
+            status_led.off()
+            is_open = False
+        else:
+            print("Curtains are already closed..")
     
 def wait_for_signal():
     while True:
