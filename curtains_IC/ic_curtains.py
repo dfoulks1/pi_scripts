@@ -20,28 +20,47 @@ m1_close = gpiozero.Button(7)
 m2_open = gpiozero.Button(6)
 m2_close = gpiozero.Button(5)
 
+m1_isOpen = False
+m2_isOpen = False
+
 def pressed(channel):
-    global m2, m1, m1c, m2c
+    global m2, m1, m1c, m2c, m2_isOpen, m1_isOpen
     if channel is m1_open:
-       m1.forward(speed=motor_speed)
-       m1c.on()
-       time.sleep(5)
-       m1c.off()
+        if not m1_isOpen:
+            print("Opening Curtains...")
+            m1.forward(speed=motor_speed)
+            m1c.on()
+            time.sleep(5)
+            m1c.off()
+        else:
+            print("Curtains are already open!")
     if channel is m1_close:
-       m1.reverse(speed=motor_speed)
-       m1c.on()
-       time.sleep(5)
-       m1c.off()
+        if m1_isOpen:
+            print("Closing Curtains...")
+            m1.forward(speed=motor_speed)
+            m1c.on()
+            time.sleep(5)
+            m1c.off()
+        else:
+            print("Curtains are already closed!")
     if channel is m2_open:
-       m2.forward(speed=motor_speed)
-       m2c.on()
-       time.sleep(5)
-       m2c.off()
+        if not m2_isOpen:
+            print("Opening Shades...")
+            m2.forward(speed=motor_speed)
+            m2c.on()
+            time.sleep(5)
+            m2c.off()
+        else:
+            print("Shades are already open!")
     if channel is m2_close:
-       m2.reverse(speed=motor_speed)
-       m2c.on()
-       time.sleep(5)
-       m2c.off()
+        if m2_isOpen:
+            print("Closing Shades...")
+            m2.forward(speed=motor_speed)
+            m2c.on()
+            time.sleep(5)
+            m2c.off()
+        else:
+            print("Shades are already closed!")
 
 def wait_for_signal():
     while True:
