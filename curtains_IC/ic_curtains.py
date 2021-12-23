@@ -72,7 +72,9 @@ def curtain():
 
 def init():
     m1_open.when_pressed = pressed
+    m1_close.when_pressed = pressed
     m2_open.when_pressed = pressed
+    m2_close.when_pressed = pressed
     time.sleep(0.1)
 
 def start_curtain():
