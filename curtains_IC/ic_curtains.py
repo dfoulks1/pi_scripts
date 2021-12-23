@@ -32,6 +32,7 @@ def pressed(channel):
             m1c.on()
             time.sleep(5)
             m1c.off()
+            m1_isOpen = False
         else:
             print("Curtains are already open!")
     if channel is m1_close:
@@ -41,6 +42,7 @@ def pressed(channel):
             m1c.on()
             time.sleep(5)
             m1c.off()
+            m1_isOpen = True
         else:
             print("Curtains are already closed!")
     if channel is m2_open:
@@ -50,6 +52,7 @@ def pressed(channel):
             m2c.on()
             time.sleep(5)
             m2c.off()
+            m2_isOpen = False
         else:
             print("Shades are already open!")
     if channel is m2_close:
@@ -59,6 +62,7 @@ def pressed(channel):
             m2c.on()
             time.sleep(5)
             m2c.off()
+            m2_isOpen = True
         else:
             print("Shades are already closed!")
 
