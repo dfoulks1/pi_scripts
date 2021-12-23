@@ -14,13 +14,6 @@ m1 = gpiozero.Motor(20, 16)
 m2c = gpiozero.LED(13)
 m2 = gpiozero.Motor(26, 19)
 
-m2.forward(speed=motor_speed)
-m2.backward(speed=motor_speed)
-
-m2c.on()
-time.sleep(10)
-m2c.off()
-
 m1_open = gpiozero.Button(12)
 m1_close = gpiozero.Button(7)
 
@@ -59,11 +52,9 @@ def curtain():
        wait_for_signal()
 
 def init():
-    r_btn.when_pressed = pressed
-    g_btn.when_pressed = pressed
-    b_btn.when_pressed = pressed
-    stop_btn.when_pressed = pressed
-    time.sleep(1)
+    m1_open.when_pressed = pressed
+    m2_open.when_pressed = pressed
+    time.sleep(0.1)
 
 def start_curtain():
     t = threading.Thread(target=curtain)
