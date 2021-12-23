@@ -8,8 +8,8 @@ import sys
 # Must be between 0-1!
 motor_speed = 1
 
-m1c = gpiozero.LED(21)
-m1 = gpiozero.Motor(20, 16)
+m1c = gpiozero.LED(16)
+m1 = gpiozero.Motor(20, 21)
 
 m2c = gpiozero.LED(13)
 m2 = gpiozero.Motor(26, 19)
@@ -30,7 +30,7 @@ def pressed(channel):
             print("Opening Curtains...")
             m1.forward(speed=motor_speed)
             m1c.on()
-            time.sleep(5)
+            time.sleep(3)
             m1c.off()
             m1_isOpen = True
         else:
