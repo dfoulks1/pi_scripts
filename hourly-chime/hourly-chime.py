@@ -29,7 +29,7 @@ def winchester():
 
 def chime(r):
     if r == 9:
-        [ring(note) for note in ["I", "I", "X"]]
+        [ring(note) for note in [I, I, X]]
 
     elif r > 9:
         ring(X)
