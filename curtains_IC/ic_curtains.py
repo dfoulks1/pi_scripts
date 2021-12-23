@@ -40,7 +40,7 @@ def pressed(channel):
     if channel is m1_close:
         if m1_isOpen:
             print("Closing Curtains...")
-            m1.forward(speed=motor_speed)
+            m1.backward(speed=motor_speed)
             m1c.on()
             time.sleep(motor_duration)
             m1c.off()
@@ -62,7 +62,7 @@ def pressed(channel):
     if channel is m2_close:
         if m2_isOpen:
             print("Closing Shades...")
-            m2.forward(speed=motor_speed)
+            m2.backward(speed=motor_speed)
             m2c.on()
             time.sleep(motor_duration)
             m2c.off()
