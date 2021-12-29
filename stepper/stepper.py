@@ -1,10 +1,10 @@
 import time
 import sys
 from gpiozero import OutputDevice as stepper
-IN1 = stepper(12)
-IN2 = stepper(16)
-IN3 = stepper(20)
-IN4 = stepper(21)
+IN1 = stepper(21)
+IN2 = stepper(20)
+IN3 = stepper(16)
+IN4 = stepper(26)
 stepPins = [IN1,IN2,IN3,IN4] # Motor GPIO pins</p><p>
 stepDir = -1        # Set to 1 for clockwise
                            # Set to -1 for anti-clockwise
