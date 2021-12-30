@@ -256,13 +256,10 @@ def loop():
 	lcd = Adafruit_CharLCD()
 	while True:
 		lcd.clear()
-		lcd.message(" LCD 1602 Test \n123456789ABCDEF")
+                lcd.message(" Composing Warwalrux LCD1602 Class")
 		sleep(2)
 		lcd.clear()
-		lcd.message("   Hello, geeks !\nHello World ! :)")
-		sleep(2)
-		lcd.clear()
-		lcd.message("Welcom to --->\n  adeept.com")
+		lcd.message("   github.com/dfoulks1/pi_scripts")
 		sleep(2)
 
 def destroy():
