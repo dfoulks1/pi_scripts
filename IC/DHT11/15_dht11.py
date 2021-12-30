@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 import time
 
-channel = 18
+channel = 12
 data = []
 j = 0
 
@@ -71,10 +71,10 @@ if check == tmp:
 else:
     print("wrong")
     print(
-        "Temperature: %s, Humitidy: %s, Check: %s, Tmp: %s" % str(temperature),
+        "Temperature: %s, Humitidy: %s, Check: %s, Tmp: %s" % (str(temperature),
         str(humidity),
         str(check),
         str(tmp),
-    )
+    ))
 
 GPIO.cleanup()
