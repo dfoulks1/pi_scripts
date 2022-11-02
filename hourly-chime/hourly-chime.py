@@ -3,7 +3,7 @@
 import time
 import sys
 
-USE_GPIO = False
+USE_GPIO = True
 FORMAT24 = False
 
 
