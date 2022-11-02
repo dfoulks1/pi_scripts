@@ -25,41 +25,29 @@ def winchester():
                 print(tone)
         time.sleep(0.5)
 
-
 def chime(r):
-    chime_overrides = {
-            4: [I, V],
-            8: [I, I, X],
-            9: [I, X],
-            }
-    chime_seq = []
+    chimes = {
+        1: [I],
+        2: [I, I],
+        3: [I, I, I],
+        4: [I, V],
+        5: [V],
+        6: [V, I],
+        7: [V, I, I],
+        8: [I, I, X],
+        9: [I, X],
+        10: [X],
+        11: [X, I],
+        12: [X, I, I]
+    }
    
-    def set_chime(r):
-        if r >= 10:
-            chime_seq.append(X)
-            r = r - 10
-            set_chime(r)
-        elif r >= 5:
-            chime_seq.append(V)
-            r = r - 5
-            set_chime(r)
-        elif r >= 1:
-            chime_seq.append(I)
-            r = r - 1
-            set_chime(r)
-
     # Build the chime sequence if it's not defined
-    if r in chime_overrides:
-        chime_seq = chime_overrides[r]
-    else:
-        chime_seq = set_chime(r)
+    chime_seq = chimes[r]
 
     # Set output
     if USE_GPIO:
         for tone in chime_seq:
             ring(tone)
-    else:
-        print(chime_seq)
 
 def ring(note):
     b.play(note)
